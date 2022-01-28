@@ -11,7 +11,6 @@
     "docs:deploy": "npm run docs:clean && npm run docs:update-lib && cd docs && git init && git add . && git commit --allow-empty -m 'Updating docs' && git push git@github.com:graphology/graphology.github.io master --force && rimraf docs/.git",
     "docs": "cd docs && bundle exec jekyll serve --livereload -o --config _local_config.yml",
     "lint": "eslint './src/**/*.js'",
-    "postinstall": "lerna bootstrap && link-parent-bin -c src",
     "prettier": "prettier --write './src/**/*.js' './src/**/*.ts' './src/**/*.md'",
     "reinstall": "lerna run clean && lerna clean --yes && rimraf node_modules && npm i",
     "test": "lerna run test"
