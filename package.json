@@ -1,5 +1,6 @@
 {
   "name": "root",
+  "version": "0.23.2",
   "private": true,
   "scripts": {
     "build": "lerna run clean && lerna run build --scope graphology && lerna run template --scope graphology-layout-forceatlas2 --scope graphology-layout-noverlap && lerna run build --scope graphology-library",
