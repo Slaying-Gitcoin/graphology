@@ -400,7 +400,8 @@ module.exports = function iterate(options, NodeMatrix, EdgeMatrix) {
                 factor =
                   (coefficient *
                     NodeMatrix[n + NODE_MASS] *
-                    RegionMatrix[r + REGION_MASS]) /
+                    RegionMatrix[r + REGION_MASS] *
+                    NodeMatrix[n + NODE_SIZE]) /
                   distance;
 
                 NodeMatrix[n + NODE_DX] += xDist * factor;
@@ -456,7 +457,8 @@ module.exports = function iterate(options, NodeMatrix, EdgeMatrix) {
                 factor =
                   (coefficient *
                     NodeMatrix[n + NODE_MASS] *
-                    NodeMatrix[rn + NODE_MASS]) /
+                    NodeMatrix[rn + NODE_MASS] *
+                    NodeMatrix[n + NODE_SIZE]) /
                   distance;
 
                 NodeMatrix[n + NODE_DX] += xDist * factor;
@@ -582,7 +584,7 @@ module.exports = function iterate(options, NodeMatrix, EdgeMatrix) {
     } else {
       //-- Linear Anti-collision Repulsion n
       if (distance > 0)
-        factor = (coefficient * NodeMatrix[n + NODE_MASS] * g) / distance;
+        factor = (coefficient * NodeMatrix[n + NODE_MASS] * g * NodeMatrix[n + NODE_SIZE]) / distance;
     }
 
     // Updating node's dx and dy
